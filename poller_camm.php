@@ -476,7 +476,7 @@ cacti_log("camm General STATS: " . $camm_stats_general_log ,true,"SYSTEM");
  		}
  		db_execute("UPDATE " . $syslog_table . " set status=1 where status=0");
     // сохраним общщее количество сообщений до начала работы с правилами
-     $stat_allSyslogs=mysql_affected_rows();
+     $stat_allSyslogs=db_affected_rows();
  	}else{
  		$stat_allSyslogs = 0;
  	}

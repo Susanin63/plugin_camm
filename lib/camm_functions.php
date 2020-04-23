@@ -505,25 +505,8 @@ camm_debug(" php [camm_poller_recreate_tree] The last time the " . $tree_type . 
  }
  
  function camm_check_dependencies() {
- 	global $plugins, $config;
- 	$rezult = false;
- 	if (in_array('settings', $plugins)) {
- 		$v = settings_version();
- 		if ($v['version'] >= 0.2) {
- 			$rezult = true;
- 		}
- 		
- 	}else{
-		$v = db_fetch_cell("SELECT `version`  FROM `plugin_config` where `directory`='settings';");
-		if (isset($v) and $v >= 0.2 ){
-			$rezult = true;
-		}
-	
-	}
-	db_execute("UPDATE  `settings` SET `value`=" . $rezult . " where `name`='camm_dependencies'");
-	//force update camm_dependencies in cache
-	$temp = read_config_option("camm_dependencies", $rezult);
- 	return $rezult;
+
+ 	return true;
 	
  } 
  
